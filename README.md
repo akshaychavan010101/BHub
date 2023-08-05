@@ -1,5 +1,3 @@
-# BHub
-
 # Project Documentation: React JS Login and Product Management App
 
 This is the documentation for the React JS Login and Product Management App. The application provides user authentication using JWT token and allows users to manage products through RESTful APIs. It utilizes React-Redux, Typescript, Node, Express, and MongoDB as its tech stack.
