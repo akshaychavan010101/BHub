@@ -12,7 +12,7 @@ import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import AddEditProduct from "./AddEditProduct";
 
 const ProductList: React.FC = () => {
-  const { products, loading, error } = useSelector(
+  const { products, loading, error, totalCount } = useSelector(
     (state: RootState) => state.products
   );
 
@@ -172,7 +172,7 @@ const ProductList: React.FC = () => {
             <Typography>Quantity: {product.quantity}</Typography>
             <Button
               variant="contained"
-              color="primary"
+              color="warning"
               onClick={() => handleEditProduct(product)}
               style={{ margin: "10px" }}
             >
@@ -198,7 +198,7 @@ const ProductList: React.FC = () => {
       </div>
       <div>
         {Array.from(
-          { length: Math.ceil(products.length / 5) },
+          { length: Math.ceil(totalCount / 5) },
           (_, index) => index + 1
         ).map((pageNumber) => (
           <Button

@@ -18,6 +18,7 @@ export interface ProductState {
   products: Product[];
   loading: boolean;
   error: string | null;
+  totalCount: number;
 }
 
 // Define the initial state
@@ -25,12 +26,16 @@ const initialState: ProductState = {
   products: [],
   loading: false,
   error: null,
+  totalCount: 0,
 };
 
 const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
+    setTotal(state, action: PayloadAction<number>) {
+      state.totalCount = action.payload;
+    },
     getProductsStart(state) {
       state.loading = true;
     },
@@ -82,6 +87,7 @@ const productSlice = createSlice({
 
 // Export the action creators
 export const {
+  setTotal,
   getProductsStart,
   getProductsSuccess,
   getProductsFailure,
@@ -118,6 +124,8 @@ export const fetchProducts: any =
       }
 
       dispatch(getProductsSuccess(data.data));
+
+      dispatch(setTotal(data.data.length));
     } catch (error: any) {
       dispatch(getProductsFailure(error.message));
     }
@@ -127,9 +135,7 @@ export const fetchProductsByPage: any =
   (page: number) => async (dispatch: any) => {
     try {
       dispatch(getProductsStart());
-      const { data } = await axios.get(
-        `${baseURL}/products/paginate/${page}`
-      );
+      const { data } = await axios.get(`${baseURL}/products/paginate/${page}`);
       dispatch(getProductsSuccess(data.data));
     } catch (error: any) {
       dispatch(getProductsFailure(error.message));
@@ -141,10 +147,7 @@ export const addProduct: any =
   (addProduct: Product) => async (dispatch: any) => {
     try {
       dispatch(addProductStart());
-      const { data } = await axios.post(
-        `${baseURL}/products/add`,
-        addProduct
-      );
+      const { data } = await axios.post(`${baseURL}/products/add`, addProduct);
       dispatch(addProductSuccess(data.data));
       alert(data.message);
       window.location.href = "/product-list";
