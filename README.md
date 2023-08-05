@@ -76,4 +76,3 @@ The backend of the application is deployed and can be accessed using the followi
 Please note that the provided links might not be valid indefinitely, as the deployments are subject to change. Make sure to check for the latest deployment links.
 
 ---
-Congratulations! You now have the documentation for the React JS Login and Product Management App. Have fun exploring and using the application! If you encounter any issues or have any questions, feel free to refer to this documentation or contact the project maintainers. Happy coding!
