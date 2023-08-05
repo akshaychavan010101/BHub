@@ -115,6 +115,8 @@ ProductRouter.get("/get-all", async (req: any, res: any) => {
       message: "Products fetched successfully",
     };
 
+    res.setHeader("x-total-count", products.length);
+
     return res.status(200).json(response);
   } catch (error) {
     console.log(error);
