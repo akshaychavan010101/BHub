@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Button, TextField } from "@mui/material";
 import { makeStyles, ThemeProvider, createTheme } from "@mui/material/styles";
-const baseUrl: string = "http://localhost:4000";
+import { baseURL } from "../env";
 
 const theme = createTheme(); // Create an empty theme
 
@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseUrl}/api/v1/users/login`, {
+      const response = await axios.post(`${baseURL}/users/login`, {
         email,
         password,
       });
@@ -45,6 +45,8 @@ const LoginForm: React.FC = () => {
         return;
       }
       const errorMessage = error.response.data;
+      console.log(error);
+
       alert(errorMessage.message || "Login failed");
     }
   };

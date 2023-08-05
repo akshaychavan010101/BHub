@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseUrl: string = "http://localhost:4000";
+import { baseURL } from "../env";
 
 // Define the type for the product data
 export interface Product {
@@ -110,7 +110,7 @@ export const fetchProducts: any =
       }
 
       const { data } = await axios.get(
-        `${baseUrl}/api/v1/products/${serachTerm}/${sortOrder}`
+        `${baseURL}/products/${serachTerm}/${sortOrder}`
       );
 
       if (data && data.data.length === 0) {
@@ -128,7 +128,7 @@ export const fetchProductsByPage: any =
     try {
       dispatch(getProductsStart());
       const { data } = await axios.get(
-        `${baseUrl}/api/v1/products/paginate/${page}`
+        `${baseURL}/products/paginate/${page}`
       );
       dispatch(getProductsSuccess(data.data));
     } catch (error: any) {
@@ -142,7 +142,7 @@ export const addProduct: any =
     try {
       dispatch(addProductStart());
       const { data } = await axios.post(
-        `${baseUrl}/api/v1/products/add`,
+        `${baseURL}/products/add`,
         addProduct
       );
       dispatch(addProductSuccess(data.data));
@@ -168,7 +168,7 @@ export const updateProduct: any =
 
       dispatch(updateProductStart());
       const { data } = await axios.patch(
-        `${baseUrl}/api/v1/products/edit/${updatePro._id}`,
+        `${baseURL}/products/edit/${updatePro._id}`,
         body
       );
       dispatch(updateProductSuccess(data.data));
