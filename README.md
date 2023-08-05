@@ -19,54 +19,20 @@ The main goal of this project is to create a web application that allows users t
 
 The frontend provides a user-friendly interface for logging in, adding/editing products, and viewing the list of products with support for search, sorting, and pagination. The backend serves as the central data repository and handles user authentication and product management via RESTful APIs.
 
+
+## Demo credentials:
+_email : akshay@gmail.com_
+_password : 123_
+
+
 ## 2. Prerequisites
 
 Before running this application, make sure you have the following prerequisites installed on your system:
 
 - Node.js (v14 or higher)
 - MongoDB (installed and running)
-
-## 3. Installation
-
-Follow the steps below to set up the project:
-
-1. Clone the repository from GitHub:
-
-```
-git clone <repository-url>
-cd reactjs-login-product-app
-```
-
-2. Install the frontend and backend dependencies:
-
-```bash
-# Install frontend dependencies
-cd frontend
-npm install
-
-# Install backend dependencies
-cd ../backend
-npm install
-```
-
-3. Configure Environment Variables:
-
-   - Create a `.env` file in the `backend` directory and configure the following variables:
-
-     ```plaintext
-     # MongoDB Connection String
-     MONGODB_URI=mongodb://localhost:27017/mydatabase
-     
-     # JWT Secret Key
-     JWT_SECRET=mysecretkey
-     
-     # JWT Token Expiry (in seconds)
-     JWT_EXPIRATION=3600
-     ```
-
-   - Modify the `MONGODB_URI` with your MongoDB connection string and set the `JWT_SECRET` as a secure secret key for JWT token generation.
-
-## 4. API Endpoints
+- 
+## 3. API Endpoints
 
 The application provides the following API endpoints:
 
@@ -98,13 +64,13 @@ The application provides the following API endpoints:
 
      This endpoint allows users to edit existing product details. It requires a JSON payload containing the updated product details.
 
-## 5. Frontend Deployment
+## 4. Frontend Deployment
 
 The frontend of the application is deployed and can be accessed using the following link:
 
 [https://bhub-five.vercel.app/](https://bhub-five.vercel.app/)
 
-## 6. Backend Deployment
+## 5. Backend Deployment
 
 The backend of the application is deployed and can be accessed using the following link:
 
