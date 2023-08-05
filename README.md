@@ -8,10 +8,9 @@ This is the documentation for the React JS Login and Product Management App. The
 
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
-3. [Installation](#installation)
-4. [API Endpoints](#api-endpoints)
-5. [Frontend Deployment](#frontend-deployment)
-6. [Backend Deployment](#backend-deployment)
+3. [API Endpoints](#api-endpoints)
+4. [Frontend Deployment](#frontend-deployment)
+5. [Backend Deployment](#backend-deployment)
 
 ## 1. Introduction
 
