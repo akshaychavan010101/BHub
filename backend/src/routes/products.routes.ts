@@ -131,7 +131,7 @@ ProductRouter.get("/get-all", async (req: any, res: any) => {
 ProductRouter.get("/paginate/:page", async (req: any, res: any) => {
   try {
     const page: number = req.params.page;
-    const limit: number = 10;
+    const limit: number = 5;
     const skip: number = (page - 1) * limit;
     const products: Product[] = await ProductModel.find()
       .skip(skip)
